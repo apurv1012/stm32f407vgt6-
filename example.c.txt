@@ -1,0 +1,27 @@
+#include <stdio.h>
+#include<stdint.h>
+
+uint8_t x = 0x88;
+int z = 0;
+uint8_t Output=0;
+
+/* Input  = 11001101*/
+/* Output = 11111000*/
+
+int main()
+{
+    for(int i=0;i<8;i++)
+    {
+        if(((x>>i) & 1) == 1)
+        {
+           z++;
+        }
+    }
+    for(int i=0;i<z;i++)
+    {
+        Output |= (0x80 | (0x80>>i)); 
+    }
+    printf("0x%x",Output);
+    
+    return 0;
+}
